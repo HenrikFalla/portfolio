@@ -106,7 +106,7 @@ export function LogoSubtitleSvg() {
 					</g>
 				</svg>
 			</div>
-			<div className='mx-[-4px] flex-1'>
+			<div className='ml-[-1px] mr-[-2px] flex-1'>
 				<svg
 					width='100%'
 					height='100%'
