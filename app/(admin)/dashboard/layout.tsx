@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Bungee_Shade, Noto_Serif } from 'next/font/google';
-import './globals.css';
+import '@/app/globals.css';
+import LogoSvg, { LogoSubtitleSvg } from '@/app/UI/SVGs/logo';
+import Link from 'next/link';
 
 const bungeeShade = Bungee_Shade({
 	variable: '--font-bungee-shade',
@@ -28,6 +30,20 @@ export default function RootLayout({
 			<body
 				className={`${bungeeShade.variable} ${notoSerif.variable} antialiased min-h-[100vh] flex flex-col items-center justify-center`}
 			>
+				<header className='ml-auto mr-auto p-5 flex flex-col items-center justify-center w-full max-w-lg gap-4'>
+					<Link
+						href='/'
+						className='w-full'
+					>
+						<LogoSvg />
+					</Link>
+					<Link
+						href='/'
+						className='w-full'
+					>
+						<LogoSubtitleSvg />
+					</Link>
+				</header>
 				{children}
 			</body>
 		</html>

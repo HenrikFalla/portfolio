@@ -73,7 +73,7 @@ export default function LogoSvg() {
 export function LogoSubtitleSvg() {
 	return (
 		<div className='logo-subtitleContainer flex flex-row max-h-40 m-auto w-full fill-slate-950 dark:fill-slate-50'>
-			<div className='pr-2 md:pr-8'>
+			<div className='pr-[4px] md:pr-[12px]'>
 				<svg
 					width='100%'
 					height='100%'
