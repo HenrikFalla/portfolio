@@ -87,7 +87,7 @@ export const options = {
 		// },
 	},
 	secret: process.env.NEXTAUTH_SECRET,
-	session: {
-		strategy: 'jwt',
-	},
+	// session: {
+	// 	strategy: 'jwt',
+	// },
 };
