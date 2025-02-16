@@ -1,5 +1,5 @@
 import GitHubProvider from 'next-auth/providers/github';
-import { getUsers } from '@/app/api/(neon)/actions/route';
+import { getUsers } from '@/app/api/(neon)/actions/actions';
 
 export const options = {
 	// pages: {
