@@ -11,6 +11,8 @@ interface HistoryItem {
 	tags?: string[];
 }
 export default function HistoryItem(data: HistoryItem) {
+	const startMonth = data.startDate.getMonth() + 1;
+	const endMonth = data.endDate.getMonth() + 1;
 	return (
 		<div
 			key={data.id}
@@ -23,13 +25,16 @@ export default function HistoryItem(data: HistoryItem) {
 				{data.institution ? <p>{data.institution}</p> : null}
 				<p>{data.location}</p>
 				<p>
-					{`${data.startDate.getFullYear()}/${
-						data.startDate.getMonth() + 1
-					} - ${data.endDate.getFullYear()}/${data.endDate.getMonth() + 1}`}
+					{`${data.startDate.getFullYear()}/${startMonth
+						.toString()
+						.padStart(2, '0')} - ${data.endDate.getFullYear()}/${endMonth
+						.toString()
+						.padStart(2, '0')}`}
 				</p>
 			</div>
 			<div>
-				<p>{data.description}</p>
+				<p className='text-justify'>{data.description}</p>{' '}
+				{/* Unsure about using justify here... */}
 			</div>
 			<div className='inline-flex gap-4 flex-wrap'>
 				{data.tags?.map((tag) => (
