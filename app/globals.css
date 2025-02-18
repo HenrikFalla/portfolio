@@ -24,12 +24,16 @@ body {
 	font-variation-settings: 'wdth' 100;
 }
 h1,
-h2,
+h2 {
+	font-family: 'Bungee Shade', serif;
+	font-weight: 400;
+	font-style: normal;
+}
 h3,
 h4,
 h5,
 h6 {
-	font-family: 'Bungee Shade', serif;
+	font-family: 'Bungee Inline', serif;
 	font-weight: 400;
 	font-style: normal;
 }

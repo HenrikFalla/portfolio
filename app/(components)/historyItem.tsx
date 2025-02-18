@@ -15,6 +15,7 @@ export default function HistoryItem(data: HistoryItem) {
 		<div
 			key={data.id}
 			className='flex flex-col gap-2 my-8'
+			id={data.title.trim().replace(/[\s(),.]/g, '-')}
 		>
 			<div>
 				<h6>{data.title}</h6>
