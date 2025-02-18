@@ -29,3 +29,9 @@ export async function createResumeItem(resumeData: ResumeData) {
 		return 'Failure';
 	}
 }
+export async function getResumeItems() {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data =
+		await sql`SELECT * FROM resume ORDER BY "endDate" DESC NULLS LAST`;
+	return data;
+}
