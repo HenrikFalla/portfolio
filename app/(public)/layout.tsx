@@ -33,7 +33,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${bungeeShade.variable} ${bungeeInline.variable} ${notoSerif.variable} antialiased min-h-[100vh] flex flex-col items-center justify-center`}
+				className={`${bungeeShade.variable} ${bungeeInline.variable} ${notoSerif.variable} antialiased min-h-full md:min-h-[100vh] flex flex-col items-center justify-center`}
 			>
 				<header className='ml-auto mr-auto p-5 flex flex-col items-center justify-center w-full max-w-lg gap-4'>
 					<Link
