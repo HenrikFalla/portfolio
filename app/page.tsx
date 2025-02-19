@@ -23,7 +23,7 @@ export default function Home() {
 							href='/resume'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
-							<h5 className='transform -rotate-12  ease-in-out duration-300'>
+							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								CV
 							</h5>
 							<ResumeIcon />
@@ -32,7 +32,7 @@ export default function Home() {
 							href='/resume'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
-							<h5 className='transform -rotate-12  ease-in-out duration-300'>
+							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Temp
 							</h5>
 							<UnicornIcon />
@@ -41,7 +41,7 @@ export default function Home() {
 							href='/resume'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
-							<h5 className='transform -rotate-12  ease-in-out duration-300'>
+							<h5 className='navText ransform -rotate-12  ease-in-out duration-300'>
 								Temp
 							</h5>
 							<KnightIcon />
@@ -50,7 +50,7 @@ export default function Home() {
 							href='/resume'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
-							<h5 className='transform -rotate-12  ease-in-out duration-300'>
+							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Temp
 							</h5>
 							<LlamaIcon />
