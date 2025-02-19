@@ -59,6 +59,9 @@ h6 {
 .logoContainer div svg {
 	@apply h-[26px];
 }
+.logoContainer div.mobile-logo svg {
+	@apply h-auto;
+}
 header a .logoContainer div svg {
 	@apply h-[32px];
 }
