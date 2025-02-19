@@ -1,3 +1,4 @@
+import Link from 'next/link';
 interface HistoryItem {
 	id: number;
 	title: string;
@@ -5,6 +6,8 @@ interface HistoryItem {
 	category: string;
 	company?: string;
 	institution?: string;
+	issuer?: string;
+	certificateurl?: string;
 	location: string;
 	startDate: Date;
 	endDate: Date;
@@ -13,6 +16,8 @@ interface HistoryItem {
 export default function HistoryItem(data: HistoryItem) {
 	const startMonth = data.startDate.getMonth() + 1;
 	const endMonth = data.endDate.getMonth() + 1;
+	// console.log('History item: ', data);
+	console.log(data);
 	return (
 		<div
 			key={data.id}
@@ -23,7 +28,8 @@ export default function HistoryItem(data: HistoryItem) {
 				<h6>{data.title}</h6>
 				{data.company ? <p>{data.company}</p> : null}
 				{data.institution ? <p>{data.institution}</p> : null}
-				<p>{data.location}</p>
+				{data.issuer ? <p>{data.issuer}</p> : null}
+				{data.location ? <p>{data.location}</p> : null}
 				<p>
 					{`${data.startDate.getFullYear()}/${startMonth
 						.toString()
@@ -31,6 +37,14 @@ export default function HistoryItem(data: HistoryItem) {
 						.toString()
 						.padStart(2, '0')}`}
 				</p>
+				{data.certificateurl ? (
+					<Link
+						href={data.certificateurl}
+						className='underline'
+					>
+						Sertifisering
+					</Link>
+				) : null}
 			</div>
 			<div>
 				<p className='text-justify'>{data.description}</p>{' '}

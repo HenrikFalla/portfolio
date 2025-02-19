@@ -17,6 +17,8 @@ const ResumeFormPage = () => {
 		category: '' as string,
 		company: '' as string,
 		institution: '' as string,
+		issuer: '' as string,
+		certificateUrl: '' as string,
 		location: '' as string,
 		startDate: new Date() as Date,
 		endDate: new Date() as Date,
@@ -97,6 +99,7 @@ const ResumeFormPage = () => {
 					</option>
 					<option value='Utdanning'>Utdanning</option>
 					<option value='Jobb'>Jobb</option>
+					<option value='Certifisering'>Sertifisering</option>
 				</select>
 				<input
 					type='text'
@@ -112,6 +115,22 @@ const ResumeFormPage = () => {
 					name='insitution'
 					id='insitution'
 					placeholder='insitution'
+					className='border border-gray-300 rounded-md px-4 py-2 text-slate-900'
+				/>
+				<input
+					type='text'
+					onChange={handleChange}
+					name='issuer'
+					id='issuer'
+					placeholder='issuer'
+					className='border border-gray-300 rounded-md px-4 py-2 text-slate-900'
+				/>
+				<input
+					type='text'
+					onChange={handleChange}
+					name='certificateUrl'
+					id='certificateUrl'
+					placeholder='certificateUrl'
 					className='border border-gray-300 rounded-md px-4 py-2 text-slate-900'
 				/>
 				<input

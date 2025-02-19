@@ -3,7 +3,7 @@ import { getResumeItems } from '@/app/api/(neon)/actions/actions';
 
 export default async function Resume() {
 	const resumeItems = await getResumeItems();
-	console.log(resumeItems);
+	// console.log(resumeItems);
 	const defaultDate: Date = new Date();
 	return (
 		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto'>

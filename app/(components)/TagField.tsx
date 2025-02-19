@@ -18,8 +18,8 @@ export const TagField = ({ tags, addTag, removeTag, maxTags }: iTag) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
 			if (
-				userInput.trim() !== '' &&
-				userInput.length <= 12 &&
+				// userInput.trim() !== '' &&
+				userInput.length <= 20 &&
 				tags.length < maxTags
 			) {
 				addTag(userInput);
