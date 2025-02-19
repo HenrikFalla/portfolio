@@ -31,11 +31,15 @@ export default function HistoryItem(data: HistoryItem) {
 				{data.issuer ? <p>{data.issuer}</p> : null}
 				{data.location ? <p>{data.location}</p> : null}
 				<p>
-					{`${data.startDate.getFullYear()}/${startMonth
-						.toString()
-						.padStart(2, '0')} - ${data.endDate.getFullYear()}/${endMonth
-						.toString()
-						.padStart(2, '0')}`}
+					{data.category == 'Certifisering'
+						? `${data.endDate.getFullYear()}/${endMonth
+								.toString()
+								.padStart(2, '0')}`
+						: `${data.startDate.getFullYear()}/${startMonth
+								.toString()
+								.padStart(2, '0')} - ${data.endDate.getFullYear()}/${endMonth
+								.toString()
+								.padStart(2, '0')}`}
 				</p>
 				{data.certificateurl ? (
 					<Link
