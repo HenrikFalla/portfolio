@@ -7,7 +7,7 @@ export function ResumeIcon() {
 			height='1584.085161pt'
 			viewBox='0 0 889.452304 1584.085161'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300'
+			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300 px-0.5 md:px-0'
 		>
 			<g
 				transform='translate(-557.083120,1782.739228) scale(0.100000,-0.100000)'
@@ -818,7 +818,7 @@ export function LlamaIcon() {
 			height='1721.804026pt'
 			viewBox='0 0 759.968940 1721.804026'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300'
+			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300 px-1 md:px-0'
 		>
 			<g
 				transform='translate(-619.978392,1855.965631) scale(0.100000,-0.100000)'
