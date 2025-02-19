@@ -7,7 +7,7 @@ export function ResumeIcon() {
 			height='1584.085161pt'
 			viewBox='0 0 889.452304 1584.085161'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-14 lg:w-20 h-fit transform rotate-12 ease-in-out duration-300'
+			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300'
 		>
 			<g
 				transform='translate(-557.083120,1782.739228) scale(0.100000,-0.100000)'
@@ -182,7 +182,7 @@ export function UnicornIcon() {
 			height='1627.830036pt'
 			viewBox='0 0 1005.207642 1627.830036'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-16 lg:w-24 h-fit transform rotate-12 ease-in-out duration-300'
+			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300'
 		>
 			<g
 				transform='translate(-499.731366,1831.830036) scale(0.100000,-0.100000)'
@@ -357,7 +357,7 @@ export function KnightIcon() {
 			height='1609.492639pt'
 			viewBox='0 0 1018.375438 1609.492639'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-16 lg:w-24 h-fit transform rotate-12 ease-in-out duration-300'
+			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300'
 		>
 			<g
 				transform='translate(-342.443146,1797.153211) scale(0.100000,-0.100000)'
@@ -818,7 +818,7 @@ export function LlamaIcon() {
 			height='1721.804026pt'
 			viewBox='0 0 759.968940 1721.804026'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-12 lg:w-16 h-fit transform rotate-12 ease-in-out duration-300'
+			className='w-auto h-auto max-h-40 transform rotate-12 ease-in-out duration-300'
 		>
 			<g
 				transform='translate(-619.978392,1855.965631) scale(0.100000,-0.100000)'
