@@ -41,6 +41,7 @@ export default function HistoryItem(data: HistoryItem) {
 					<Link
 						href={data.certificateurl}
 						className='underline'
+						target='_blank'
 					>
 						Sertifisering
 					</Link>
