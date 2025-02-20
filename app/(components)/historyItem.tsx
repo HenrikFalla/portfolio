@@ -21,11 +21,11 @@ export default function HistoryItem(data: HistoryItem) {
 	return (
 		<div
 			key={data.id}
-			className='flex flex-col gap-2 my-8'
+			className='flex flex-col gap-4 my-8'
 			id={data.title.trim().replace(/[\s(),.]/g, '-')}
 		>
 			<div>
-				<h6>{data.title}</h6>
+				<h6 className='pb-2'>{data.title}</h6>
 				{data.company ? <p>{data.company}</p> : null}
 				{data.institution ? <p>{data.institution}</p> : null}
 				{data.issuer ? <p>{data.issuer}</p> : null}

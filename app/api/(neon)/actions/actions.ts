@@ -34,6 +34,12 @@ export async function createResumeItem(resumeData: ResumeData) {
 export async function getResumeItems() {
 	const sql = neon(process.env.DATABASE_URL as string);
 	const data =
-		await sql`SELECT * FROM resume ORDER BY "endDate" DESC NULLS LAST`;
+		await sql`SELECT * FROM resume WHERE category IN ('Utdanning', 'Jobb') ORDER BY "endDate" DESC NULLS LAST`;
+	return data;
+}
+export async function getCertificationItems() {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data =
+		await sql`SELECT * FROM resume WHERE category IN ('Sertifisering') ORDER BY "endDate" DESC NULLS LAST`;
 	return data;
 }

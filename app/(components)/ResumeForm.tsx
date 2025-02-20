@@ -99,7 +99,7 @@ const ResumeFormPage = () => {
 					</option>
 					<option value='Utdanning'>Utdanning</option>
 					<option value='Jobb'>Jobb</option>
-					<option value='Certifisering'>Sertifisering</option>
+					<option value='Sertifisering'>Sertifisering</option>
 				</select>
 				<input
 					type='text'

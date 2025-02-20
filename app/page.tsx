@@ -20,16 +20,16 @@ export default function Home() {
 				<main className='m-auto p-0 md:p-5 flex flex-col items-center justify-center w-full max-w-6xl gap-4 relative'>
 					<nav className='w-full max-w-md grid grid-cols-4 justify-end gap-8 mb-2 md:mb-6 self-end justify-self-end'>
 						<Link
-							href='/resume'
+							href='/timeline'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
-								CV
+								Tidslinje
 							</h5>
 							<ResumeIcon />
 						</Link>
 						<Link
-							href='/resume'
+							href='/'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
@@ -38,7 +38,7 @@ export default function Home() {
 							<UnicornIcon />
 						</Link>
 						<Link
-							href='/resume'
+							href='/'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText ransform -rotate-12  ease-in-out duration-300'>
@@ -47,7 +47,7 @@ export default function Home() {
 							<KnightIcon />
 						</Link>
 						<Link
-							href='/resume'
+							href='/'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
