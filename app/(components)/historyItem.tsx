@@ -31,7 +31,7 @@ export default function HistoryItem(data: HistoryItem) {
 				{data.issuer ? <p>{data.issuer}</p> : null}
 				{data.location ? <p>{data.location}</p> : null}
 				<p>
-					{data.category == 'Certifisering'
+					{data.category == 'Sertifisering'
 						? `${data.endDate.getFullYear()}/${endMonth
 								.toString()
 								.padStart(2, '0')}`

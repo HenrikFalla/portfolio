@@ -66,7 +66,7 @@ const ResumeFormPage = () => {
 		<section>
 			<form
 				onSubmit={handleSubmit}
-				className='flex flex-col gap-4 py-4 text-slate-900'
+				className='flex flex-col gap-4 py-4 text-slate-900 [&>*]:bg-slate-50'
 			>
 				<input
 					type='text'
