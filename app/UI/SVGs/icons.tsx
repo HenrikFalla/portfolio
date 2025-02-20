@@ -12,7 +12,7 @@ export function ResumeIcon() {
 			<g
 				transform='translate(-557.083120,1782.739228) scale(0.100000,-0.100000)'
 				stroke='none'
-				className='fill-slate-950 dark:fill-slate-50'
+				className='fill-foreground dark:fill-foreground-dark'
 			>
 				<path
 					d='M9312 17817 c-5 -6 -14 -25 -19 -41 -12 -39 -36 -54 -57 -37 -9 8
@@ -186,7 +186,7 @@ export function UnicornIcon() {
 		>
 			<g
 				transform='translate(-499.731366,1831.830036) scale(0.100000,-0.100000)'
-				className='fill-slate-950 dark:fill-slate-50'
+				className='fill-foreground dark:fill-foreground-dark'
 				stroke='none'
 			>
 				<path
@@ -361,7 +361,7 @@ export function KnightIcon() {
 		>
 			<g
 				transform='translate(-342.443146,1797.153211) scale(0.100000,-0.100000)'
-				className='fill-slate-950 dark:fill-slate-50'
+				className='fill-foreground dark:fill-foreground-dark'
 				stroke='none'
 			>
 				<path
@@ -822,7 +822,7 @@ export function LlamaIcon() {
 		>
 			<g
 				transform='translate(-619.978392,1855.965631) scale(0.100000,-0.100000)'
-				className='fill-slate-950 dark:fill-slate-50'
+				className='fill-foreground dark:fill-foreground-dark'
 				stroke='none'
 			>
 				<path

@@ -16,7 +16,7 @@ export default function Home() {
 	// }
 	return (
 		<div className='flex flex-col items-center justify-center w-screen h-screen p-8'>
-			<div className='w-full h-full rounded-2xl solid border-2 border-slate-950 dark:border-slate-50 p-8 flex flex-col items-center justify-center'>
+			<div className='w-full h-full rounded-2xl solid border-2 border-foreground dark:border-foreground-dark p-8 flex flex-col items-center justify-center'>
 				<main className='m-auto p-0 md:p-5 flex flex-col items-center justify-center w-full max-w-6xl gap-4 relative'>
 					<nav className='w-full max-w-md grid grid-cols-4 justify-end gap-8 mb-2 md:mb-6 self-end justify-self-end'>
 						<Link

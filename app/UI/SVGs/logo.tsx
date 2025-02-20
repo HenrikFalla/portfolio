@@ -1,6 +1,6 @@
 export default function LogoSvg() {
 	return (
-		<div className='logoContainer flex flex-row m-auto w-full h-fit fill-slate-950 dark:fill-slate-50'>
+		<div className='logoContainer flex flex-row m-auto w-full h-fit fill-foreground dark:fill-foreground-dark'>
 			<div className='logoStart hidden md:block'>
 				<svg
 					width='100%'
@@ -196,7 +196,7 @@ export default function LogoSvg() {
 }
 export function LogoSubtitleSvg() {
 	return (
-		<div className='logo-subtitleContainer md:flex flex-row max-h-40 m-auto w-full fill-slate-950 dark:fill-slate-50 hidden'>
+		<div className='logo-subtitleContainer md:flex flex-row max-h-40 m-auto w-full fill-foreground dark:fill-foreground-dark hidden'>
 			<div className='pr-[4px] md:pr-[12px]'>
 				<svg
 					width='100%'

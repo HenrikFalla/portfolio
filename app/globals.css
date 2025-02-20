@@ -21,9 +21,12 @@
 @theme {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
+	--color-foreground-dark: var(--foreground-dark);
 	--font-bungee-shade: 'Bungee Shade', 'sans serif';
 	--font-bungee-inline: 'Bungee Inline', 'sans-serif';
 	--font-noto-serif: 'Noto Serif', 'serif';
+	--color-custom-one: var(--custom-bg-one);
+	--color-custom-two: var(--custom-bg-two);
 }
 
 /*
@@ -46,14 +49,11 @@
 
 :root {
 	--background: #ffffff;
-	--foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+	/* --foreground: #00524f; */
+	--foreground: #013836;
+	--foreground-dark: #06d496;
+	--custom-bg-one: #024d4b;
+	--custom-bg-two: #024d2b;
 }
 
 body {
@@ -115,7 +115,12 @@ header a .logoContainer div svg {
 header a .logo-subtitleContainer div svg {
 	@apply h-[18px];
 }
-
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #06d496;
+	}
+}
 @media screen and (min-width: 450px) {
 	.logoContainer div svg {
 		@apply h-12;
