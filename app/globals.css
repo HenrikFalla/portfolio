@@ -117,6 +117,10 @@ header a .logoContainer div svg {
 header a .logo-subtitleContainer div svg {
 	@apply h-[18px];
 }
+/* 
+Currently tailwind 4 does not support other dark mode strategies than color scheme media queries. Use Next theme to update when selector strategy is available.
+https://github.com/pacocoursey/next-themes
+*/
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #3c096c;
@@ -139,4 +143,3 @@ header a .logo-subtitleContainer div svg {
 		@apply h-14;
 	}
 }
-
