@@ -21,7 +21,7 @@ export default function Home() {
 					<nav className='w-full max-w-md grid grid-cols-4 justify-end gap-8 mb-2 md:mb-6 self-end justify-self-end'>
 						<Link
 							href='/timeline'
-							className='hover:[&>h5]:-rotate-6 hover:[&>svg]:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Tidslinje
@@ -30,7 +30,7 @@ export default function Home() {
 						</Link>
 						<Link
 							href='/'
-							className='hover:[&>h5]:-rotate-6 hover:[&>svg]:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Temporary
@@ -39,7 +39,7 @@ export default function Home() {
 						</Link>
 						<Link
 							href='/'
-							className='hover:[&>h5]:-rotate-6 hover:[&>svg]:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText ransform -rotate-12  ease-in-out duration-300'>
 								Temp
@@ -48,7 +48,7 @@ export default function Home() {
 						</Link>
 						<Link
 							href='/'
-							className='hover:[&>h5]:-rotate-6 hover:[&>svg]:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Temp

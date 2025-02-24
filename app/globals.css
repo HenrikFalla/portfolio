@@ -1,51 +1,12 @@
-@font-face {
-	font-family: 'Bungee Shade';
-	src: url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Bungee Inline';
-	src: url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'Noto Serif';
-	src: url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
-	font-style: normal;
-	font-weight: 400;
-}
-@import 'tailwindcss';
-
-@theme {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--color-foreground-dark: var(--foreground-dark);
-	--font-bungee-shade: 'Bungee Shade', 'sans serif';
-	--font-bungee-inline: 'Bungee Inline', 'sans-serif';
-	--font-noto-serif: 'Noto Serif', 'serif';
-	--color-custom-one: var(--custom-bg-one);
-	--color-custom-two: var(--custom-bg-two);
-}
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentColor);
-	}
-}
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
 	--background: #d8f3dc;
