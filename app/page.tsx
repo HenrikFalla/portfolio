@@ -20,10 +20,10 @@ export default function Home() {
 			<div className='w-full h-full rounded-2xl solid border-2 border-foreground dark:border-foreground-dark p-8 flex flex-col items-center justify-center'>
 				{/* <style type='text/css'>header {display: none;}</style> */}
 				<main className='m-auto p-0 md:p-5 flex flex-col items-center justify-center w-full max-w-6xl gap-4 relative'>
-					<nav className='w-full max-w-md grid grid-cols-4 justify-end gap-8 mb-2 md:mb-6 self-end justify-self-end'>
+					<nav className='w-full max-w-md grid grid-cols-4 justify-end gap-4 md:gap-8 mb-2 md:mb-6 self-end justify-self-end items-end'>
 						<Link
 							href='/timeline'
-							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-0 md:gap-4 h-fit'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Erfaring
@@ -32,7 +32,7 @@ export default function Home() {
 						</Link>
 						<Link
 							href='/'
-							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4 h-fit'
 						>
 							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
 								Temporary
@@ -41,7 +41,7 @@ export default function Home() {
 						</Link>
 						<Link
 							href='/'
-							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
+							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4 h-fit'
 						>
 							<h5 className='navText ransform -rotate-12  ease-in-out duration-300'>
 								Temp
