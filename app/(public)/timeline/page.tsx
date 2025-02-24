@@ -12,10 +12,16 @@ export default async function Resume() {
 	return (
 		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto'>
 			<div className='col-span-2'>
-				<h1 className='mx-auto w-fit'>Historikk</h1>
+				<h1 className='mx-auto w-fit'>Tidslinje</h1>
 			</div>
 			<div className='col-span-2 md:col-span-1 px-4 md:px-0'></div>
 			<div className='col-span-2 md:col-span-1 px-4 md:px-0'>
+				<h3
+					className='pt-8'
+					id='historikk'
+				>
+					Historikk
+				</h3>
 				{resumeItems.map((item) => (
 					<HistoryItem
 						title={''}
@@ -29,12 +35,12 @@ export default async function Resume() {
 						{...item}
 					/>
 				))}
-				<h4
+				<h3
 					className='pt-8'
 					id='sertifiseringer'
 				>
 					Sertifiseringer
-				</h4>
+				</h3>
 				{certificationItems.map((item) => (
 					<HistoryItem
 						title={''}
