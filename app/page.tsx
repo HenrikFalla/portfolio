@@ -44,7 +44,7 @@ export default function Home() {
 							href='/timeline'
 							className='[&>h5]:hover:-rotate-6 [&>svg]:hover:rotate-6 col-span-1 flex flex-col gap-0 md:gap-4 h-fit col-start-3'
 						>
-							<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
+							<h5 className='navText transform -rotate-[25deg]  ease-in-out duration-300'>
 								Erfaring
 							</h5>
 							<KnightIcon />
