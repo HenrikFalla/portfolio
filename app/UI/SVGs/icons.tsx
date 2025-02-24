@@ -1057,7 +1057,7 @@ export function BabyBear() {
 			height='1544.241985pt'
 			viewBox='0 0 1054.602998 1544.241985'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-auto max-w-[calc(100%+16px)] md:max-w-full self-center h-auto max-h-40 transform rotate-12 ease-in-out duration-300 px-1'
+			className='w-auto max-w-[calc(100%+16px)] self-center h-auto max-h-40 transform rotate-12 ease-in-out duration-300 px-1'
 		>
 			<g
 				transform='translate(-467.942518,1770.912864) scale(0.100000,-0.100000)'
@@ -1364,7 +1364,7 @@ export function AdultBear() {
 			height='1391.725807pt'
 			viewBox='0 0 1077.999486 1391.725807'
 			preserveAspectRatio='xMidYMid meet'
-			className='w-auto max-w-[calc(100%+16px)] md:max-w-full self-center h-auto max-h-40 transform rotate-12 ease-in-out duration-300 px-1'
+			className='w-auto max-w-[calc(100%+16px)] self-center h-auto max-h-40 transform rotate-12 ease-in-out duration-300 px-1'
 		>
 			<g
 				transform='translate(-461.000343,1706.102769) scale(0.100000,-0.100000)'
