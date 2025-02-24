@@ -7,10 +7,10 @@
 	--background: #d8f3dc;
 	/* --foreground: #00524f; */
 	--foreground: #013836;
-
+	--background-dark: #3c096c;
 	--foreground-dark: #88d4ab;
-	--custom-bg-one: #00544f;
-	--custom-bg-two: #004141;
+	--custom-one: #00544f;
+	--custom-two: #004141;
 }
 
 body {

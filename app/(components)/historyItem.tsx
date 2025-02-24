@@ -59,7 +59,7 @@ export default function HistoryItem(data: HistoryItem) {
 				{data.tags?.map((tag) => (
 					<p
 						key={tag + data.id}
-						className='px-4 py-1.5 rounded-full bg-linear-to-r from-custom-one to-custom-two text-slate-50'
+						className='px-4 py-1.5 rounded-full bg-foreground text-background dark:bg-foreground-dark dark:text-background-dark'
 					>
 						{tag}
 					</p>
