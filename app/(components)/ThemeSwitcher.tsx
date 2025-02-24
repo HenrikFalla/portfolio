@@ -14,7 +14,7 @@ const ThemeSwitcher = () => {
 		<button
 			onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}
 			type='button'
-			className='[&>div>h5]:hover:-rotate-6 [&>div>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4 h-fit'
+			className='[&>div>h5]:hover:-rotate-6 [&>div>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4 h-fit col-start-4'
 		>
 			<div className='dark:hidden flex flex-col gap-4 justify-between h-[90%] -mt-4'>
 				<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
