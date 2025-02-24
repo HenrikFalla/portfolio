@@ -18,13 +18,13 @@ const ThemeSwitcher = () => {
 		>
 			<div className='dark:hidden flex flex-col gap-4 justify-between h-[90%] -mt-4'>
 				<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
-					switch to dark
+					switch
 				</h5>
 				<AdultBear />
 			</div>
 			<div className='hidden dark:flex flex-col gap-4 justify-between h-[90%] -mt-4'>
 				<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
-					Switch to light
+					Switch
 				</h5>
 				<BabyBear />
 			</div>
