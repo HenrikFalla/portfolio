@@ -16,15 +16,15 @@ const ThemeSwitcher = () => {
 			type='button'
 			className='[&>div>h5]:hover:-rotate-6 [&>div>svg]:hover:rotate-6 col-span-1 flex flex-col gap-4'
 		>
-			<div className='dark:hidden flex flex-col gap-4 justify-between h-[90%]'>
+			<div className='dark:hidden flex flex-col gap-4 justify-between h-[90%] -mt-4'>
 				<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
-					Dark
+					switch to dark
 				</h5>
 				<AdultBear />
 			</div>
-			<div className='hidden dark:flex flex-col gap-4 justify-between h-[90%]'>
+			<div className='hidden dark:flex flex-col gap-4 justify-between h-[90%] -mt-4'>
 				<h5 className='navText transform -rotate-12  ease-in-out duration-300'>
-					Light
+					Switch to light
 				</h5>
 				<BabyBear />
 			</div>

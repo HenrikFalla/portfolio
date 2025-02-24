@@ -1,5 +1,10 @@
 import Link from 'next/link';
-import { KnightIcon, LlamaIcon, UnicornIcon } from './UI/SVGs/icons';
+import {
+	KnightAdultIcon,
+	KnightIcon,
+	LlamaIcon,
+	UnicornIcon,
+} from './UI/SVGs/icons';
 import LogoSvg, { LogoSubtitleSvg } from './UI/SVGs/logo';
 import ThemeSwitcher from '@/app/(components)/ThemeSwitcher';
 // import { getUsers } from './api/(neon)/actions/route';
@@ -42,6 +47,7 @@ export default function Home() {
 								Temp
 							</h5>
 							<KnightIcon />
+							<KnightAdultIcon />
 						</Link>
 
 						<ThemeSwitcher />
