@@ -2,8 +2,8 @@ import Link from 'next/link';
 import {
 	KnightAdultIcon,
 	KnightIcon,
-	LlamaIcon,
-	UnicornIcon,
+	// LlamaIcon,
+	// UnicornIcon,
 } from './UI/SVGs/icons';
 import LogoSvg, { LogoSubtitleSvg } from './UI/SVGs/logo';
 import ThemeSwitcher from '@/app/(components)/ThemeSwitcher';
