@@ -14,7 +14,7 @@ export default async function Resume() {
 		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto [&>header]:col-span-2'>
 			<Header />
 			<div className='col-span-2'>
-				<h1 className='mx-auto w-fit'>Tidslinje</h1>
+				<h1 className='mx-auto w-fit'>Erfaring</h1>
 			</div>
 			<div className='col-span-2 md:col-span-1 px-4 md:px-0'></div>
 			<div className='col-span-2 md:col-span-1 px-4 md:px-0'>
