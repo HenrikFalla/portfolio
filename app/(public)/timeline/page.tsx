@@ -3,6 +3,7 @@ import {
 	getCertificationItems,
 	getResumeItems,
 } from '@/app/api/(neon)/actions/actions';
+import Header from '@/app/(components)/nav/header';
 
 export default async function Resume() {
 	const resumeItems = await getResumeItems();
@@ -10,7 +11,8 @@ export default async function Resume() {
 	// console.log(resumeItems);
 	const defaultDate: Date = new Date();
 	return (
-		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto'>
+		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto [&>header]:col-span-2'>
+			<Header />
 			<div className='col-span-2'>
 				<h1 className='mx-auto w-fit'>Tidslinje</h1>
 			</div>

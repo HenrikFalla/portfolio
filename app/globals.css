@@ -5,7 +5,6 @@
 
 :root {
 	--background: #d8f3dc;
-	/* --foreground: #00524f; */
 	--foreground: #013836;
 	--background-dark: #3c096c;
 	--foreground-dark: #88d4ab;
@@ -21,6 +20,9 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	font-variation-settings: 'wdth' 100;
+}
+body {
+	@apply bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark;
 }
 h1,
 h2,
@@ -77,12 +79,12 @@ header a .logo-subtitleContainer div svg {
 Currently tailwind 4 does not support other dark mode strategies than color scheme media queries. Use Next theme to update when selector strategy is available.
 https://github.com/pacocoursey/next-themes
 */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #3c096c;
 		--foreground: #88d4ab;
 	}
-}
+} */
 @media screen and (min-width: 450px) {
 	.logoContainer div svg {
 		@apply h-12;

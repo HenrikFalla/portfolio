@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ThemeProvider } from 'next-themes';
 import { Bungee_Shade, Bungee_Inline, Noto_Serif } from 'next/font/google';
 import '../globals.css';
 import Header from '../(components)/nav/header';
@@ -31,12 +32,22 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
+		<html
+			lang='en'
+			suppressHydrationWarning
+		>
 			<body
 				className={`${bungeeShade.variable} ${bungeeInline.variable} ${notoSerif.variable} antialiased h-auto md:min-h-[100vh] flex flex-col items-center justify-center`}
 			>
-				<Header />
-				{children}
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Header />
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	);
