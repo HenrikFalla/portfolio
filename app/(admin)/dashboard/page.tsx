@@ -10,9 +10,9 @@ export default function Dashbaord() {
 						<p>Resume Builder</p>
 					</div>
 				</Link>
-				<Link href='/dashboard/resume'>
+				<Link href='/dashboard/course'>
 					<div className='flex flex-col items-center justify-center min-h-16 w-full rounded-2xl bg-slate-200 dark:bg-slate-900'>
-						<p>Resume</p>
+						<p>New Course</p>
 					</div>
 				</Link>
 				<Link href='/dashboard/resume'>
