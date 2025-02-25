@@ -14,6 +14,14 @@ interface ResumeData {
 	endDate: Date;
 	tags: string[];
 }
+interface CourseData {
+	title: string;
+	description: string;
+	instructor: string;
+	company: string;
+	slug: string;
+	url: string;
+}
 export async function getUsers() {
 	const sql = neon(process.env.DATABASE_URL as string);
 	const data = await sql`SELECT email FROM authorised_users`;
@@ -41,5 +49,16 @@ export async function getCertificationItems() {
 	const sql = neon(process.env.DATABASE_URL as string);
 	const data =
 		await sql`SELECT * FROM resume WHERE category IN ('Sertifisering') ORDER BY "endDate" DESC NULLS LAST`;
+	return data;
+}
+export async function createCourseItem(courseData: CourseData) {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data =
+		await sql`INSERT INTO public.courses (title, description, instructor, company, slug, url) VALUES (${courseData.title}, ${courseData.description}, ${courseData.instructor}, ${courseData.company}, ${courseData.slug}, ${courseData.url})`;
+	return data;
+}
+export async function getCourseItem(slug: string) {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data = await sql`SELECT * FROM public.courses WHERE slug = ${slug}`;
 	return data;
 }

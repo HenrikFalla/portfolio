@@ -85,6 +85,18 @@ https://github.com/pacocoursey/next-themes
 		--foreground: #88d4ab;
 	}
 } */
+.markdown-section {
+	@apply gap-2;
+}
+.markdown-section p {
+	@apply my-2;
+}
+.markdown-section ul li {
+	@apply list-disc list-inside indent-2;
+}
+.markdown-section div a {
+	@apply underline;
+}
 @media screen and (min-width: 450px) {
 	.logoContainer div svg {
 		@apply h-12;
