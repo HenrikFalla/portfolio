@@ -1,13 +1,107 @@
 'use client';
 import useTagInput from '@/app/hooks/useTag';
 import { TagField } from '@/app/(components)/TagField';
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import React from 'react';
-import { createResumeItem } from '@/app/api/(neon)/actions/actions';
+import {
+	createResumeCourse,
+	createResumeItem,
+} from '@/app/api/(neon)/actions/actions';
+type CourseItems = [
+	{
+		id: number;
+		title: string;
+		slug: string;
+	},
+];
+type ResumeId = [
+	{
+		category?: string;
+		certificateurl?: string;
+		company?: string;
+		description?: string;
+		endDate?: Date;
+		id: number;
+		institution?: string;
+		issuer?: string;
+		location?: string;
+		startDate?: Date;
+		tags?: string[];
+		title?: string;
+	},
+];
+interface iState {
+	id: number[];
+}
+interface iAction {
+	id: number;
+}
+const reducer = (state: iState, action: iAction) => {
+	if (state.id.includes(action.id)) {
+		return {
+			...state,
+			id: state.id.filter((id: number) => id !== action.id),
+		};
+	}
 
-const ResumeFormPage = () => {
+	return {
+		...state,
+		id: [...state.id, action.id],
+	};
+};
+export default function ResumeFormPage(props: { props: CourseItems }) {
+	// console.log('Props', courses);
 	//define the MaxTags
+	console.log('Props', props);
+	const courseItems = props.props;
+	console.log('CourseItems', courseItems);
+	// const initialCourseItemsState = (courseItems: CourseItems) => {
+	// 	const stateToReturn = [] as unknown as CourseItemState;
+	// 	courseItems.map((item) => {
+	// 		stateToReturn.push({
+	// 			id: item.id,
+	// 			title: item.title,
+	// 			slug: item.slug,
+	// 			checked: false,
+	// 		});
+	// 	});
+	// 	return stateToReturn;
+	// };
 
+	// https://stackoverflow.com/questions/63020545/limit-number-of-checkboxes-selected-and-save-value/63021381#63021381
+	// check this site for new solution!!!
+	// const [checks, setChecks] = useState(initialCourseItemsState(courseItems));
+	// const [checkBoxes, setCheckBoxes] = useState(
+	// 	initialCourseItemsState(courseItems),
+	// );
+	// console.log('Checks state', checks);
+	// const checkboxes = initialCourseItemsState(courseItems) as CourseItemState;
+
+	// const handleCheckboxChange = (id: number) => {
+	// 	setChecks((prevState) => {
+	// 		checks.map((item) => {
+	// 			if (item.id === id) {
+	// 				item = { ...item, checked: !item.checked };
+	// 			}
+	// 			return item;
+	// 		});
+	// 		prevState = [...checks];
+	// 		return prevState;
+	// 	});
+	// 	checkboxes.map((item) => {
+	// 		if (item.id === id) {
+	// 			item.checked = !item.checked;
+	// 		}
+	// 		console.log('New State', item.checked);
+	// 		return item;
+	// 	});
+	// 	console.log('Checkboxes', checkboxes);
+	// };
+	// console.log('CheckBoxes', checkboxes);
+
+	const initialState = { id: [] };
+	const [state, dispatch] = useReducer(reducer, initialState);
+	console.log('State: ', state);
 	const MAX_TAGS = 10;
 
 	//Retrieve all the returned items from the hook
@@ -52,14 +146,40 @@ const ResumeFormPage = () => {
 		// Send tags to the backend
 		e.preventDefault();
 		console.log('Tags: ', tags);
+		console.log('Submitting resume item');
 		const data = { ...formData, tags: tags };
 		setFormData({
 			...formData,
 			tags: tags,
 		});
 		console.log('Data: ', data);
+		// const courseIds = [] as number[];
+		// for (const item of checkboxes) {
+		// 	console.log('Item: ', item);
+		// 	if (item.checked) {
+		// 		courseIds.push(item.id);
+		// 	}
+		// }
+		// console.log('Course ids: ', courseIds);
+		console.log('Creating resume item');
 		const response = await createResumeItem(data);
-		console.log(response);
+		const res = response as unknown as ResumeId;
+		console.log('Response from create resume item: ', res);
+		console.log('Checking if res is truthy');
+		if (res && state.id.length >= 1) {
+			console.log('res checks as truthy');
+			state.id.map(async (id: number) => {
+				const response = await createResumeCourse(res[0].id, id);
+				return response;
+			});
+			// for (const id of courseIds) {
+			// 	console.log('Creating resume course');
+			// 	const response = await createResumeCourse(res[0].id, id);
+			// 	console.log('Response from create resume course: ', response);
+			// }
+		}
+		// const resumeId = (await getResumeId(data.title)) as unknown as ResumeId;
+		// console.log('Resume item', resumeId);
 	};
 
 	return (
@@ -155,6 +275,26 @@ const ResumeFormPage = () => {
 					id='endDate'
 					className='border border-gray-300 rounded-md px-4 py-2 text-slate-900'
 				/>
+				{courseItems.map((item) => {
+					return (
+						<div key={item.title + '-container'}>
+							<input
+								key={item.id.toString() + '-checkbox'}
+								type='checkbox'
+								name={item.title}
+								id={item.id.toString()}
+								onClick={() => dispatch({ id: item.id })}
+								// defaultChecked={state.checkedIds.includes(item.id)}
+							/>
+							<label
+								key={item.title + '-label'}
+								htmlFor={item.id.toString()}
+							>
+								{item.title}
+							</label>
+						</div>
+					);
+				})}
 				<TagField
 					tags={tags}
 					addTag={handleAddTag}
@@ -171,6 +311,4 @@ const ResumeFormPage = () => {
 			</form>
 		</section>
 	);
-};
-
-export default ResumeFormPage;
+}
