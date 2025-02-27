@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { ThemeProvider } from 'next-themes';
 import { Bungee_Shade, Bungee_Inline, Noto_Serif } from 'next/font/google';
 import '@/app/globals.css';
@@ -35,6 +36,7 @@ export default function RootLayout({
 			lang='en'
 			suppressHydrationWarning
 		>
+			<GoogleTagManager gtmId='GTM-5VN6WCTN' />
 			<body
 				className={`${bungeeShade.variable} ${bungeeInline.variable} ${notoSerif.variable} antialiased h-auto md:min-h-[100vh] flex flex-col items-center justify-center`}
 			>
@@ -44,7 +46,6 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-
 					{children}
 				</ThemeProvider>
 			</body>
