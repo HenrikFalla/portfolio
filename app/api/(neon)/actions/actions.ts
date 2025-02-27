@@ -65,6 +65,13 @@ export async function createCourseItem(courseData: CourseData) {
 export async function getCourseItem(slug: string) {
 	const sql = neon(process.env.DATABASE_URL as string);
 	const data = await sql`SELECT * FROM public.courses WHERE slug = ${slug}`;
+
+	return data;
+}
+export async function getCourseItemTitle(id: string) {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data =
+		await sql`SELECT title, slug FROM public.courses WHERE id = ${id}`;
 	return data;
 }
 export async function getCourseItems() {
@@ -83,4 +90,22 @@ export async function createResumeCourse(resumeId: number, courseId: number) {
 	const data =
 		await sql`INSERT INTO public.resume_courses (resume_id, course_id) VALUES (${resumeId}, ${courseId})`;
 	return data;
+}
+export async function getResumeCourseItems(resumeId: number) {
+	const sql = neon(process.env.DATABASE_URL as string);
+	console.log('Getting resume id', resumeId);
+	try {
+		// const testdata =
+		// 	await sql`SELECT EXISTS (SELECT 1 FROM resume_courses WHERE resume_id = '${resumeId}')`;
+		// if (!testdata) {
+		// 	throw new Error('No data found');
+		// }
+		// const data =
+		// 	await sql`SELECT * FROM resume_courses WHERE resume_id = '${resumeId}'`;
+		const data =
+			await sql`SELECT * FROM resume_courses WHERE EXISTS (SELECT 1 FROM resume_courses WHERE resume_id = ${resumeId}) AND resume_id = ${resumeId}`;
+		return data;
+	} catch (e) {
+		return e;
+	}
 }

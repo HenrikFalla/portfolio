@@ -12,12 +12,18 @@ interface HistoryItem {
 	startDate: Date;
 	endDate: Date;
 	tags?: string[];
+	courses?: [
+		{
+			title: string;
+			slug: string;
+		},
+	];
 }
 export default function HistoryItem(data: HistoryItem) {
 	const startMonth = data.startDate.getMonth() + 1;
 	const endMonth = data.endDate.getMonth() + 1;
 	// console.log('History item: ', data);
-	console.log(data);
+	// console.log(data);
 	return (
 		<div
 			key={data.id}
@@ -52,7 +58,22 @@ export default function HistoryItem(data: HistoryItem) {
 				) : null}
 			</div>
 			<div>
-				<p className='text-justify'>{data.description}</p>{' '}
+				<p className='text-justify'>{data.description}</p>
+				{data.courses ? (
+					<ul className='list-disc list-inside'>
+						{data.courses.map((course) => (
+							<li key={course.title}>
+								<Link
+									key={course.slug}
+									href={`/courses/${course.slug}`}
+									className='underline'
+								>
+									{course.title}
+								</Link>
+							</li>
+						))}
+					</ul>
+				) : null}
 				{/* Unsure about using justify here... */}
 			</div>
 			<div className='inline-flex gap-4 flex-wrap'>
