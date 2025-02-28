@@ -3,6 +3,7 @@ import {
 	getResumeCourseItems,
 	getCourseItemTitle,
 } from '../api/(neon)/actions/actions';
+import Markdown from 'marked-react';
 interface HistoryItem {
 	id: number;
 	title: string;
@@ -88,7 +89,9 @@ export default async function HistoryItem(data: HistoryItem) {
 				) : null}
 			</div>
 			<div>
-				<p className='text-justify'>{data.description}</p>
+				<div className='text-justify'>
+					<Markdown>{data.description}</Markdown>
+				</div>
 				{courseTitles && courseTitles.length > 0 ? (
 					<ul className='list-disc list-inside'>
 						{courseTitles.map((course) => (
