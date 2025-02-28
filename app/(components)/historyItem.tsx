@@ -1,4 +1,8 @@
 import Link from 'next/link';
+import {
+	getResumeCourseItems,
+	getCourseItemTitle,
+} from '../api/(neon)/actions/actions';
 interface HistoryItem {
 	id: number;
 	title: string;
@@ -12,16 +16,42 @@ interface HistoryItem {
 	startDate: Date;
 	endDate: Date;
 	tags?: string[];
-	courses?: [
-		{
-			title: string;
-			slug: string;
-		},
-	];
 }
-export default function HistoryItem(data: HistoryItem) {
+interface CourseTitle {
+	title: string;
+	slug: string;
+}
+interface CourseId {
+	course_id: string;
+}
+//consider getting the course ID's from here instead...
+export default async function HistoryItem(data: HistoryItem) {
 	const startMonth = data.startDate.getMonth() + 1;
 	const endMonth = data.endDate.getMonth() + 1;
+	const courses = (await getResumeCourseItems(data.id)) as CourseId[];
+	console.log('Courses: ', courses.length);
+	let courseTitles = [] as CourseTitle[];
+	if (courses && courses.length > 0) {
+		console.log('Course array is greater than 0');
+		// const courseTitles = (await Promise.all(
+		// 	courses.map((item) =>  {
+		// 	console.log('Item: ', item);
+		// 	const courseItem = await getCourseItemTitle(item.course_id);
+		// 	console.log('Course item: ', courseItem);
+		// 	return [...courseItem]
+		// }))) as CourseTitle[];
+		const response = await Promise.all(
+			courses.map((item) => {
+				return getCourseItemTitle(item.course_id);
+			}),
+		);
+		console.log('Response: ', response);
+		courseTitles = response.flat(1) as CourseTitle[];
+		console.log('Course titles: ', courseTitles);
+	} else {
+		courseTitles = [] as CourseTitle[];
+		console.log(courseTitles);
+	}
 	// console.log('History item: ', data);
 	// console.log(data);
 	return (
@@ -59,9 +89,9 @@ export default function HistoryItem(data: HistoryItem) {
 			</div>
 			<div>
 				<p className='text-justify'>{data.description}</p>
-				{data.courses ? (
+				{courseTitles && courseTitles.length > 0 ? (
 					<ul className='list-disc list-inside'>
-						{data.courses.map((course) => (
+						{courseTitles.map((course) => (
 							<li key={course.title}>
 								<Link
 									key={course.slug}

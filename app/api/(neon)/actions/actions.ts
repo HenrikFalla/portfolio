@@ -103,7 +103,7 @@ export async function getResumeCourseItems(resumeId: number) {
 		// const data =
 		// 	await sql`SELECT * FROM resume_courses WHERE resume_id = '${resumeId}'`;
 		const data =
-			await sql`SELECT * FROM resume_courses WHERE EXISTS (SELECT 1 FROM resume_courses WHERE resume_id = ${resumeId}) AND resume_id = ${resumeId}`;
+			await sql`SELECT course_id FROM resume_courses WHERE EXISTS (SELECT * FROM resume_courses WHERE resume_id = ${resumeId}) AND resume_id = ${resumeId}`;
 		return data;
 	} catch (e) {
 		return e;
