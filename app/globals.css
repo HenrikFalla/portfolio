@@ -94,6 +94,9 @@ https://github.com/pacocoursey/next-themes
 .markdown-section ul li {
 	@apply list-disc list-inside indent-2;
 }
+.markdown-section ul li ul li {
+	@apply list-[circle] list-inside indent-4;
+}
 .markdown-section div a {
 	@apply underline;
 }
