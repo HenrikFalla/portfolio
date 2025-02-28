@@ -76,7 +76,7 @@ export async function getCourseItemTitle(id: string) {
 }
 export async function getCourseItems() {
 	const sql = neon(process.env.DATABASE_URL as string);
-	const data = await sql`SELECT id, title, slug FROM public.courses`;
+	const data = await sql`SELECT * FROM public.courses`;
 	return data;
 }
 export async function getResumeId(title: string) {
