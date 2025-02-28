@@ -89,7 +89,7 @@ export default async function HistoryItem(data: HistoryItem) {
 				) : null}
 			</div>
 			<div>
-				<div className='text-justify'>
+				<div className='text-justify markdown-description'>
 					<Markdown>{data.description}</Markdown>
 				</div>
 				{courseTitles && courseTitles.length > 0 ? (

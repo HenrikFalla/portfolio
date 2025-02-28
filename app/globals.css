@@ -100,6 +100,15 @@ https://github.com/pacocoursey/next-themes
 .markdown-section div a {
 	@apply underline;
 }
+.markdown-description {
+	@apply gap-y-2;
+}
+.markdown-description p {
+	@apply indent-4;
+}
+.markdown-description ul li {
+	@apply list-disc list-inside indent-2 text-left;
+}
 @media screen and (min-width: 450px) {
 	.logoContainer div svg {
 		@apply h-12;
