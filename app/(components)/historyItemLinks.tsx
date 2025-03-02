@@ -13,7 +13,7 @@ export default function HistoryItemLinks(props: { links: iLinks[] }) {
 	const visibleLink = IsVisibleSection(props.links);
 	return (
 		<div className='flex flex-col gap-8  sticky top-[40vh] left-0 h-fit'>
-			<h3>Nav</h3>
+			<h3>Meny</h3>
 			<div className='link-menu flex flex-col gap-2 sticky'>
 				{props.links.map((item) => {
 					return (
