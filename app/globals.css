@@ -11,7 +11,9 @@
 	--custom-one: #00544f;
 	--custom-two: #004141;
 }
-
+html {
+	@apply scroll-smooth;
+}
 body {
 	color: var(--foreground);
 	background: var(--background);
@@ -109,6 +111,17 @@ https://github.com/pacocoursey/next-themes
 .markdown-description ul li {
 	@apply list-disc list-inside indent-2 text-left;
 }
+.link-menu div {
+	@apply pl-8 relative;
+}
+.link-menu a {
+	@apply relative before:content-[''] before:absolute before:-left-8 before:top-1 before:w-3 before:h-3 before:border-2 before:rounded-full before:border-foreground dark:before:from-foreground-dark transform ease-in-out duration-100 before:transition before:ease-in-out before:duration-100;
+}
+.link-menu div a[data-active='true'] {
+	@apply before:bg-foreground dark:before:bg-foreground-dark font-black text-lg;
+}
+/* .link-menu a[data-active='true'] {
+} */
 @media screen and (min-width: 450px) {
 	.logoContainer div svg {
 		@apply h-12;

@@ -6,6 +6,7 @@ import {
 	// getCourseItemTitle,
 } from '@/app/api/(neon)/actions/actions';
 import Header from '@/app/(components)/nav/header';
+import HistoryItemLinks from '@/app/(components)/historyItemLinks';
 // interface ResumeCourseItem {
 // 	id: number;
 // 	resume_id: string;
@@ -19,39 +20,30 @@ import Header from '@/app/(components)/nav/header';
 export default async function Resume() {
 	const resumeItems = await getResumeItems();
 	const certificationItems = await getCertificationItems();
-	// console.log(resumeItems);
+	console.log(resumeItems);
+	const resumeLinks = resumeItems.map((item) => {
+		const link = {
+			url: item.title.trim().replace(/[\s(),.]/g, '-'),
+			title: item.title,
+		};
+		return link;
+	});
+	resumeLinks.push({
+		url: 'sertifiseringer',
+		title: 'Sertifiseringer',
+	});
+
+	console.log('Resume Links: ', resumeLinks);
 	const defaultDate: Date = new Date();
-	// for (const item of resumeItems) {
-	// 	// move this to the historyItem component
-	// 	console.log(item.id);
-	// 	const response = (await getResumeCourseItems(
-	// 		item.id,
-	// 	)) as ResumeCourseItem[];
-	// 	console.log('Response from server', response);
-	// 	if (response && response.length > 0) {
-	// 		for (const resItem of response) {
-	// 			console.log('Res Item', resItem.course_id);
-	// 			const courseResponse = (await getCourseItemTitle(
-	// 				resItem.course_id,
-	// 			)) as CourseTitle[];
-	// 			console.log('Course Response', courseResponse);
-	// 			if (courseResponse && courseResponse.length > 0) {
-	// 				// const course = [...courseResponse];
-	// 				// console.log('Destructured response', course);
-	// 				item.courses = [...courseResponse];
-	// 			}
-	// 			// return resItem;
-	// 		}
-	// 	}
-	// 	console.log('Updated response', resumeItems);
-	// }
 	return (
 		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto [&>header]:col-span-2'>
 			<Header />
 			<div className='col-span-2'>
 				<h1 className='mx-auto w-fit'>Erfaring</h1>
 			</div>
-			<div className='col-span-2 md:col-span-1 px-4 md:px-0'></div>
+			<div className='col-span-2 md:col-span-1 px-4 md:px-0'>
+				<HistoryItemLinks links={resumeLinks} />
+			</div>
 			<div className='col-span-2 md:col-span-1 px-4 md:px-0'>
 				<h3
 					className='pt-8'
@@ -72,10 +64,11 @@ export default async function Resume() {
 						{...item}
 					/>
 				))}
-				<h3
-					className='pt-8'
-					id='sertifiseringer'
-				>
+				<h3 className='pt-8 relative'>
+					<span
+						id='sertifiseringer'
+						className='absolute -top-[35vh]'
+					></span>
 					Sertifiseringer
 				</h3>
 				{certificationItems.map((item) => (

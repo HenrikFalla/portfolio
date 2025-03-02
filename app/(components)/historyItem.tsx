@@ -58,9 +58,13 @@ export default async function HistoryItem(data: HistoryItem) {
 	return (
 		<div
 			key={data.id}
-			className='flex flex-col gap-4 my-8'
-			id={data.title.trim().replace(/[\s(),.]/g, '-')}
+			className='flex flex-col gap-4 my-8 relative'
 		>
+			<span
+				key={data.id + '-anchor'}
+				id={data.title.trim().replace(/[\s(),.]/g, '-')}
+				className='absolute -top-[35vh]'
+			></span>
 			<div>
 				<h6 className='pb-2'>{data.title}</h6>
 				{data.company ? <p>{data.company}</p> : null}
