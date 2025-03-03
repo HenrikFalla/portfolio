@@ -25,7 +25,7 @@ interface CourseTitle {
 interface CourseId {
 	course_id: string;
 }
-//consider getting the course ID's from here instead...
+// Find a way to make this dynamic
 export default async function HistoryItem(data: HistoryItem) {
 	const startMonth = data.startDate.getMonth() + 1;
 	const endMonth = data.endDate.getMonth() + 1;
@@ -67,7 +67,7 @@ export default async function HistoryItem(data: HistoryItem) {
 			></span>
 			<div>
 				<h6 className='pb-2'>{data.title}</h6>
-				{data.company ? <p>{data.company}</p> : null}
+				{data.company ? <p className='font-bold'>{data.company}</p> : null}
 				{data.institution ? <p>{data.institution}</p> : null}
 				{data.issuer ? <p>{data.issuer}</p> : null}
 				{data.location ? <p>{data.location}</p> : null}
