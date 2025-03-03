@@ -97,7 +97,7 @@ export default async function HistoryItem(data: HistoryItem) {
 					<Markdown>{data.description}</Markdown>
 				</div>
 				{courseTitles && courseTitles.length > 0 ? (
-					<ul className='list-disc list-inside'>
+					<ul className='list-disc list-outside'>
 						{courseTitles.map((course) => (
 							<li key={course.title}>
 								<Link

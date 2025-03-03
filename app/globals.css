@@ -93,8 +93,11 @@ https://github.com/pacocoursey/next-themes
 .markdown-section p {
 	@apply my-2;
 }
+.markdown-section ul {
+	@apply pl-6;
+}
 .markdown-section ul li {
-	@apply list-disc list-inside indent-2;
+	@apply list-disc list-outside;
 }
 .markdown-section ul li ul li {
 	@apply list-[circle] list-inside indent-4;
@@ -108,17 +111,20 @@ https://github.com/pacocoursey/next-themes
 .markdown-description p {
 	@apply indent-4;
 }
+.markdown-description ul {
+	@apply pl-6;
+}
 .markdown-description ul li {
-	@apply list-disc list-inside indent-2 text-left;
+	@apply list-disc list-outside text-left;
 }
 .link-menu div {
 	@apply pl-8 relative;
 }
 .link-menu a {
-	@apply relative before:content-[''] before:absolute before:-left-8 before:top-1 before:w-3 before:h-3 before:border-2 before:rounded-full before:border-foreground dark:before:from-foreground-dark transform ease-in-out duration-100 before:transition before:ease-in-out before:duration-100;
+	@apply relative before:content-[''] before:absolute before:-left-8 before:top-1 before:w-3 before:h-3 before:border-2 before:rounded-full before:border-foreground dark:before:border-foreground-dark transform ease-in-out duration-300 before:transition before:ease-in-out before:duration-300;
 }
 .link-menu div a[data-active='true'] {
-	@apply before:bg-foreground dark:before:bg-foreground-dark font-black text-lg;
+	@apply before:bg-foreground dark:before:bg-foreground-dark font-black;
 }
 /* .link-menu a[data-active='true'] {
 } */
