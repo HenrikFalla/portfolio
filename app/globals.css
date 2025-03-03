@@ -100,7 +100,7 @@ https://github.com/pacocoursey/next-themes
 	@apply list-disc list-outside;
 }
 .markdown-section ul li ul li {
-	@apply list-[circle] list-inside indent-4;
+	@apply list-[circle] list-outside;
 }
 .markdown-section div a {
 	@apply underline;
