@@ -19,6 +19,6 @@ export default async function course() {
 		url: item.url,
 		description: item.description,
 	}));
-	console.log('FormList', formList);
+	// console.log('FormList', formList);
 	return <UpdateCourseForm formList={formList as FormList[]} />;
 }

@@ -12,7 +12,7 @@ interface FormList {
 }
 
 export default function UpdateCourseForm(props: { formList: Array<FormList> }) {
-	console.log(props.formList);
+	// console.log(props.formList);
 	const [inputField, setInputField] = useState(props.formList[0].description);
 	const [courseData, setCourseData] = useState({
 		title: props.formList[0].title,
@@ -26,7 +26,7 @@ export default function UpdateCourseForm(props: { formList: Array<FormList> }) {
 	});
 
 	const onSelectChange = (key: number) => {
-		console.log(key);
+		// console.log(key);
 		setCourseId({
 			id: props.formList[key].id,
 			selected: key,
@@ -71,8 +71,8 @@ export default function UpdateCourseForm(props: { formList: Array<FormList> }) {
 		});
 		setInputField('Type here...');
 	};
-	console.log(inputField);
-	console.log(courseData);
+	// console.log(inputField);
+	// console.log(courseData);
 	return (
 		<div className='flex flex-col gap-4 py-4 items-center'>
 			<select
