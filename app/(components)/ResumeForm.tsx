@@ -143,7 +143,6 @@ export default function ResumeFormPage(props: { props: CourseItems }) {
 	};
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		// Send tags to the backend
 		e.preventDefault();
 		console.log('Tags: ', tags);
 		console.log('Submitting resume item');
@@ -153,14 +152,6 @@ export default function ResumeFormPage(props: { props: CourseItems }) {
 			tags: tags,
 		});
 		console.log('Data: ', data);
-		// const courseIds = [] as number[];
-		// for (const item of checkboxes) {
-		// 	console.log('Item: ', item);
-		// 	if (item.checked) {
-		// 		courseIds.push(item.id);
-		// 	}
-		// }
-		// console.log('Course ids: ', courseIds);
 		console.log('Creating resume item');
 		const response = await createResumeItem(data);
 		const res = response as unknown as ResumeId;
@@ -172,14 +163,21 @@ export default function ResumeFormPage(props: { props: CourseItems }) {
 				const response = await createResumeCourse(res[0].id, id);
 				return response;
 			});
-			// for (const id of courseIds) {
-			// 	console.log('Creating resume course');
-			// 	const response = await createResumeCourse(res[0].id, id);
-			// 	console.log('Response from create resume course: ', response);
-			// }
 		}
-		// const resumeId = (await getResumeId(data.title)) as unknown as ResumeId;
-		// console.log('Resume item', resumeId);
+		setFormData((prevState) => ({
+			...prevState,
+			title: '',
+			description: '',
+			category: '',
+			company: '',
+			institution: '',
+			issuer: '',
+			certificateUrl: '',
+			location: '',
+			startDate: new Date(),
+			endDate: new Date(),
+			tags: [],
+		}));
 	};
 
 	return (

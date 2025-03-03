@@ -1,16 +1,44 @@
 'use client';
 import { createCourseItem } from '@/app/api/(neon)/actions/actions';
 import Markdown from 'marked-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+interface FormList {
+	id: number;
+	title: string;
+	company: string;
+	instructor: string;
+	url: string;
+	description: string;
+}
 
-export default function CourseForm() {
-	const [inputField, setInputField] = useState('Type here...');
+export default function UpdateCourseForm(props: { formList: Array<FormList> }) {
+	console.log(props.formList);
+	const [inputField, setInputField] = useState(props.formList[0].description);
 	const [courseData, setCourseData] = useState({
-		title: '',
-		company: '',
-		instructor: '',
-		url: '',
+		title: props.formList[0].title,
+		company: props.formList[0].company,
+		instructor: props.formList[0].instructor,
+		url: props.formList[0].url,
 	});
+	const [courseId, setCourseId] = useState({
+		id: props.formList[0].id,
+		selected: 0,
+	});
+
+	const onSelectChange = (key: number) => {
+		console.log(key);
+		setCourseId({
+			id: props.formList[key].id,
+			selected: key,
+		});
+		setCourseData({
+			title: props.formList[key].title,
+			company: props.formList[key].company,
+			instructor: props.formList[key].instructor,
+			url: props.formList[key].url,
+		});
+		setInputField(props.formList[key].description);
+	};
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setCourseData({
@@ -29,14 +57,17 @@ export default function CourseForm() {
 			...courseData,
 			description: inputField,
 			slug: slug,
+			id: courseId.id,
 		};
 		const response = await createCourseItem(registerData);
-		console.log(response);
+		console.log('Response from update: ', response);
+		// const response = await createCourseItem(registerData);
+		// console.log(response);
 		setCourseData({
-			title: '',
-			company: '',
-			instructor: '',
-			url: '',
+			title: '' as string,
+			company: '' as string,
+			instructor: '' as string,
+			url: '' as string,
 		});
 		setInputField('Type here...');
 	};
@@ -44,6 +75,19 @@ export default function CourseForm() {
 	console.log(courseData);
 	return (
 		<div className='flex flex-col gap-4 py-4 items-center'>
+			<select
+				onChange={(e) => onSelectChange(parseInt(e.target.value))}
+				value={courseId.selected}
+			>
+				{props.formList.map((item, key) => (
+					<option
+						key={key}
+						value={key}
+					>
+						{item.title}
+					</option>
+				))}
+			</select>
 			<form
 				onSubmit={handleSubmit}
 				className='flex flex-col gap-4 py-4 max-w-lg'
@@ -58,6 +102,7 @@ export default function CourseForm() {
 							id='title'
 							placeholder='Title'
 							className='rounded-md p-2'
+							value={courseData.title}
 						/>
 					</div>
 					<div className='flex flex-col gap-2'>
@@ -69,6 +114,7 @@ export default function CourseForm() {
 							id='company'
 							placeholder='Company'
 							className='rounded-md p-2'
+							value={courseData.company}
 						/>
 					</div>
 					<div className='flex flex-col gap-2'>
@@ -80,6 +126,7 @@ export default function CourseForm() {
 							id='instructor'
 							placeholder='Instructor'
 							className='rounded-md p-2'
+							value={courseData.instructor}
 						/>
 					</div>
 					<div className='flex flex-col gap-2'>
@@ -90,6 +137,7 @@ export default function CourseForm() {
 							name='url'
 							id='url'
 							placeholder='Url'
+							value={courseData.url}
 							className='rounded-md p-2'
 						/>
 					</div>
@@ -100,7 +148,7 @@ export default function CourseForm() {
 						<textarea
 							name='description'
 							id='description'
-							defaultValue={inputField}
+							value={inputField}
 							onChange={(e) => setInputField(e.target.value)}
 							className='min-h-28 rounded-md p-2'
 						/>
