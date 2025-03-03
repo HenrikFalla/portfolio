@@ -117,6 +117,20 @@ https://github.com/pacocoursey/next-themes
 .markdown-description ul li {
 	@apply list-disc list-outside text-left;
 }
+
+/* Links menu */
+.link-section {
+	@apply flex md:block fixed w-full items-center md:relative bottom-0 col-span-2 md:col-span-1 order-2 md:order-1 px-8 md:px-0 h-20 md:h-full bg-opacity-100 md:bg-opacity-0 bg-foreground dark:bg-foreground-dark text-background md:text-foreground dark:text-background-dark  dark:md:text-foreground-dark md:bg-background dark:md:bg-background-dark  z-10;
+}
+.link-section .link-menu {
+	@apply items-center md:items-start;
+}
+.link-section h3 {
+	@apply hidden md:block;
+}
+.link-section .link-menu div[data-active='false'] {
+	@apply hidden md:block;
+}
 .link-menu div {
 	@apply pl-8 relative;
 }

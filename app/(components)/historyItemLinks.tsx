@@ -17,7 +17,10 @@ export default function HistoryItemLinks(props: { links: iLinks[] }) {
 			<div className='link-menu flex flex-col gap-2 sticky'>
 				{props.links.map((item) => {
 					return (
-						<div key={item.url + '-container'}>
+						<div
+							key={item.url + '-container'}
+							data-active={visibleLink === item.url}
+						>
 							<a
 								key={item.url + '-link'}
 								href={'#' + item.url}

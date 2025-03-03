@@ -41,10 +41,10 @@ export default async function Resume() {
 			<div className='col-span-2'>
 				<h1 className='mx-auto w-fit'>Erfaring</h1>
 			</div>
-			<div className='col-span-2 md:col-span-1 px-4 md:px-0'>
+			<div className='link-section'>
 				<HistoryItemLinks links={resumeLinks} />
 			</div>
-			<div className='col-span-2 md:col-span-1 px-4 md:px-0'>
+			<div className='col-span-2 md:col-span-1 order-1 md:order-2 px-4 md:px-0 pb-20'>
 				<h3
 					className='pt-8'
 					id='historikk'
