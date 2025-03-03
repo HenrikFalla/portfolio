@@ -68,9 +68,11 @@ export default async function HistoryItem(data: HistoryItem) {
 			<div>
 				<h6 className='pb-2'>{data.title}</h6>
 				{data.company ? <p className='font-black'>{data.company}</p> : null}
-				{data.institution ? <p>{data.institution}</p> : null}
-				{data.issuer ? <p>{data.issuer}</p> : null}
-				{data.location ? <p>{data.location}</p> : null}
+				{data.institution ? (
+					<p className='font-black'>{data.institution}</p>
+				) : null}
+				{data.issuer ? <p className='font-black'>{data.issuer}</p> : null}
+				{data.location ? <p className='font-black'>{data.location}</p> : null}
 				<p>
 					{data.category == 'Sertifisering'
 						? `${data.endDate.getFullYear()}/${endMonth
