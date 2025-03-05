@@ -302,7 +302,7 @@ export default function ResumeFormPage(props: { props: CourseItems }) {
 
 				<button
 					type='submit'
-					className='rounded-md px-4 py-2 bg-slate-900 dark:bg-slate-50 text-slate-50 dark:text-slate-900'
+					className='rounded-md px-4 py-2 bg-slate-900 dark:bg-slate-50 text-slate-900 dark:text-slate-50'
 				>
 					Submit
 				</button>

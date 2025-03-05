@@ -1,5 +1,10 @@
 import CourseForm from '@/app/(components)/forms/courseForm';
+import AdminLayout from '@/app/UI/AdminLayout';
 
 export default function course() {
-	return <CourseForm />;
+	return (
+		<AdminLayout title='Create corse'>
+			<CourseForm />
+		</AdminLayout>
+	);
 }

@@ -1,5 +1,6 @@
 import UpdateCourseForm from '@/app/(components)/forms/updateCourseForm';
 import { getCourseItems } from '@/app/api/(neon)/actions/actions';
+import AdminLayout from '@/app/UI/AdminLayout';
 interface FormList {
 	id: number;
 	title: string;
@@ -20,5 +21,9 @@ export default async function course() {
 		description: item.description,
 	}));
 	// console.log('FormList', formList);
-	return <UpdateCourseForm formList={formList as FormList[]} />;
+	return (
+		<AdminLayout title='Update Course'>
+			<UpdateCourseForm formList={formList as FormList[]} />;
+		</AdminLayout>
+	);
 }

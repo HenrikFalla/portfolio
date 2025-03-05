@@ -163,7 +163,7 @@ export default function UpdateCourseForm(props: { formList: Array<FormList> }) {
 					</button>
 				</section>
 			</form>
-			<section>
+			<section className='markdown-section'>
 				<h1>{courseData.title}</h1>
 				<p>{courseData.company}</p>
 				<p>{courseData.instructor}</p>

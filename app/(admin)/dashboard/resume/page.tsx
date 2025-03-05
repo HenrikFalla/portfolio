@@ -1,6 +1,6 @@
-import ResumeFormPage from '@/app/(components)/ResumeForm';
+import ResumeFormPage from '@/app/(components)/forms/ResumeForm';
 import { getCourseItems } from '@/app/api/(neon)/actions/actions';
-
+import AdminLayout from '@/app/UI/AdminLayout';
 
 export default async function ResumeBuilder() {
 	const response = await getCourseItems();
@@ -14,11 +14,11 @@ export default async function ResumeBuilder() {
 	];
 	console.log(courseItems);
 	return (
-		<main className='p-4'>
+		<AdminLayout title='Resume Builder'>
 			<h1>Resume Builder</h1>
 			{/* {courseItems ? <ResumeFormPage courses={courseItems} /> : null} */}
 			{/* <ResumeFormPage props={courseItems} /> */}
 			<ResumeFormPage props={courseItems} />
-		</main>
+		</AdminLayout>
 	);
 }
