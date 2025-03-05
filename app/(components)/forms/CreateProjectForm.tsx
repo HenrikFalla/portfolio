@@ -4,7 +4,9 @@ import Input from './fields/Input';
 import TextAreaInput from './fields/TextAreaInput';
 import FileInput from './fields/FileInput';
 import Image from 'next/image';
-import { put } from '@vercel/blob';
+// import { put } from '@vercel/blob';
+import { type PutBlobResult } from '@vercel/blob';
+import { upload } from '@vercel/blob/client';
 interface Project {
 	title: string;
 	description: string;
@@ -17,6 +19,7 @@ interface HTMLInputEvent extends ChangeEvent<HTMLInputElement> {
 	target: HTMLInputElement & EventTarget;
 }
 export default function CreateProjectForm() {
+	const [blob, setBlob] = useState<PutBlobResult | null>(null);
 	const [formData, setFormData] = useState({
 		title: '',
 		description: '',
@@ -65,14 +68,24 @@ export default function CreateProjectForm() {
 	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		if (formData.mainImage) {
-			const response = await put(
-				'portfolio/images/' + formData.mainImage.name,
+			// const response = await put(
+			// 	'portfolio/images/' + formData.mainImage.name,
+			// 	formData.mainImage,
+			// 	{
+			// 		access: 'public',
+			// 	},
+			// );
+			// console.log(response);
+			const newBlob = await upload(
+				formData.mainImage.name,
 				formData.mainImage,
 				{
 					access: 'public',
+					handleUploadUrl: '/api/portfolio/images',
 				},
 			);
-			console.log(response);
+			setBlob(newBlob);
+			console.log(blob);
 		}
 	}
 
