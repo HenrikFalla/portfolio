@@ -22,6 +22,7 @@ export default function TextAreaInput(props: InputValues) {
 				id={props.name}
 				value={props.value}
 				onChange={handleChange}
+				className='h-max min-h-96 rounded-2xl p-4'
 			></textarea>
 		</>
 	);
