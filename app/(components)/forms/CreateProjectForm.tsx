@@ -1,34 +1,25 @@
 'use client';
+
 import React, { ChangeEvent, useCallback, useState } from 'react';
-import Input from './fields/Input';
-import TextAreaInput from './fields/TextAreaInput';
 import FileInput from './fields/FileInput';
 import Image from 'next/image';
-// import { put } from '@vercel/blob';
-import { type PutBlobResult } from '@vercel/blob';
-import { upload } from '@vercel/blob/client';
-interface Project {
-	title: string;
-	description: string;
-	slug: string;
-	url: string;
-	mainImage: File | undefined;
-	galleryImages: File[];
-}
+import Input from './fields/Input';
+import TextAreaInput from './fields/TextAreaInput';
+
 interface HTMLInputEvent extends ChangeEvent<HTMLInputElement> {
 	target: HTMLInputElement & EventTarget;
 }
 export default function CreateProjectForm() {
-	const [blob, setBlob] = useState<PutBlobResult | null>(null);
+	const [mainImage, setMainImage] = useState<File | null>();
+	const [galleryImages, setGalleryImages] = useState<File[] | null>();
 	const [formData, setFormData] = useState({
 		title: '',
 		description: '',
 		slug: '',
 		url: '',
-		mainImage: undefined,
-		galleryImages: [],
-	} as Project);
-	console.log(formData);
+		mainImage: '/placeholder.svg',
+		galleryImages: [] as string[],
+	});
 	const [mainImagePreview, setMainImagePreview] = useState('/placeholder.svg');
 	const [galleryImagesPreview, setGalleryImagesPreview] = useState([
 		'/placeholder.svg',
@@ -48,47 +39,84 @@ export default function CreateProjectForm() {
 		},
 		[],
 	);
-	const handleChangeFileInputField = useCallback((e: HTMLInputEvent) => {
+	function handleMainImageChange(e: React.ChangeEvent<HTMLInputElement>) {
 		if (e.target.files) {
-			setFormData((prevState) => ({
-				...prevState,
-				[e.target.name]: e.target.files,
-			}));
-			if (e.target.name === 'mainImage' && e.target.files) {
-				setMainImagePreview(URL.createObjectURL(e.target.files[0]));
-			} else {
-				const urls: string[] = [];
-				for (let i = 0; i < e.target.files.length; i++) {
-					urls.push(URL.createObjectURL(e.target.files[i]));
-				}
-				setGalleryImagesPreview(urls);
-			}
-		}
-	}, []);
-	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-		e.preventDefault();
-		if (formData.mainImage) {
-			// const response = await put(
-			// 	'portfolio/images/' + formData.mainImage.name,
-			// 	formData.mainImage,
-			// 	{
-			// 		access: 'public',
-			// 	},
-			// );
-			// console.log(response);
-			const newBlob = await upload(
-				formData.mainImage.name,
-				formData.mainImage,
-				{
-					access: 'public',
-					handleUploadUrl: '/api/portfolio/images',
-				},
-			);
-			setBlob(newBlob);
-			console.log(blob);
+			setMainImage(e.target.files[0]);
+			setMainImagePreview(URL.createObjectURL(e.target.files[0]));
 		}
 	}
-
+	function handleGalleryImageChange(e: HTMLInputEvent) {
+		if (e.target.files) {
+			console.log(e.target.files);
+			setGalleryImages(Array.from(e.target.files));
+			setGalleryImagesPreview(
+				Array.from(e.target.files).map((file) => URL.createObjectURL(file)),
+			);
+		}
+	}
+	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault();
+		const uploadedMedia = [];
+		if (mainImage) {
+			try {
+				const mainImageFormData = new FormData();
+				mainImageFormData.append('file', mainImage as Blob);
+				const mainImageResponse = await fetch('/api/portfolio/images', {
+					method: 'POST',
+					body: mainImageFormData,
+				});
+				if (!mainImageResponse.ok) {
+					throw new Error('Failed to upload main image');
+				}
+				const mainImageData = await mainImageResponse.json();
+				console.log(mainImageData);
+				uploadedMedia.push({
+					src: mainImageData.url,
+					alt: 'Featured image',
+					type: 'image',
+				});
+				console.log(uploadedMedia);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		if (galleryImages) {
+			try {
+				for (const file of galleryImages as File[]) {
+					const galleryImageFormData = new FormData();
+					galleryImageFormData.append('file', file);
+					const galleryImagesResponse = await fetch('/api/portfolio/images', {
+						method: 'POST',
+						body: galleryImageFormData,
+					});
+					if (!galleryImagesResponse.ok) {
+						throw new Error('Failed to upload gallery images');
+					}
+					const galleryImagesData = await galleryImagesResponse.json();
+					console.log(galleryImagesData);
+					uploadedMedia.push({
+						src: galleryImagesData.url,
+						alt: 'Gallery image',
+						type: 'image',
+					});
+					console.log(uploadedMedia);
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		const uploadForm = { ...formData };
+		if (uploadedMedia.length > 0) {
+			uploadedMedia.map((file) => {
+				if (file.alt === 'Featured image') {
+					uploadForm.mainImage = file.src;
+				} else {
+					uploadForm.galleryImages.push(file.src);
+				}
+			});
+		}
+		console.log(uploadForm);
+	}
 	return (
 		<form
 			className='grid grid-cols-3 gap-4 max-w-2xl p-8'
@@ -128,7 +156,7 @@ export default function CreateProjectForm() {
 					className='max-h-80 w-auto rounded-xl object-cover'
 				/>
 				<FileInput
-					onChange={handleChangeFileInputField}
+					onChange={handleMainImageChange}
 					multiple={false}
 					name='mainImage'
 					label='Main Image'
@@ -149,7 +177,7 @@ export default function CreateProjectForm() {
 					})}
 				</div>
 				<FileInput
-					onChange={handleChangeFileInputField}
+					onChange={handleGalleryImageChange}
 					name='galleryImages'
 					label='Gallery Images'
 					multiple={true}

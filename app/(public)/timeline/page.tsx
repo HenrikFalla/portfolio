@@ -1,22 +1,12 @@
 import HistoryItem from '@/app/(components)/historyItem';
 import {
 	getCertificationItems,
-	// getResumeCourseItems,
 	getResumeItems,
-	// getCourseItemTitle,
 } from '@/app/api/(neon)/actions/actions';
 import Header from '@/app/(components)/nav/header';
 import HistoryItemLinks from '@/app/(components)/historyItemLinks';
-// interface ResumeCourseItem {
-// 	id: number;
-// 	resume_id: string;
-// 	course_id: string;
-// 	courses?: CourseTitle[];
-// }
-// interface CourseTitle {
-// 	title: string;
-// 	slug: string;
-// }
+export const dynamic = 'force-dynamic';
+
 export default async function Resume() {
 	const resumeItems = await getResumeItems();
 	const certificationItems = await getCertificationItems();
