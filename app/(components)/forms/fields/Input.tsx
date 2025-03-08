@@ -22,6 +22,7 @@ export default function Input({ type = 'text', ...props }: InputValues) {
 				id={props.name}
 				onChange={handleChange}
 				value={props.value}
+				className='py-2 px-4 rounded-xl'
 			/>
 		</>
 	);
