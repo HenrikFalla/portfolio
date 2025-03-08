@@ -1,4 +1,3 @@
-import Header from '@/app/(components)/nav/header';
 import { getCourseItem } from '@/app/api/(neon)/actions/actions';
 import Markdown from 'marked-react';
 import Link from 'next/link';
@@ -16,7 +15,6 @@ export default async function Course({
 	}
 	return (
 		<div className='grid grid-cols-2 gap-4 max-w-4xl mx-auto [&>header]:col-span-2 px-4'>
-			<Header />
 			<section className='col-span-2'>
 				{courseData[0].title ? <h3>{courseData[0].title}</h3> : null}
 				<div className='flex flex-wrap flex-row gap-4 w-full items-center justify-center py-4 bg-[rgba(0,0,0,0.1)] dark:bg-[rgba(255,255,255,0.1)] rounded-lg my-4'>
