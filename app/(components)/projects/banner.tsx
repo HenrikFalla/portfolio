@@ -21,6 +21,7 @@ export default function Banner(props: { src: string; alt: string }) {
 					onLoad={() => {
 						setLoded(true);
 					}}
+					priority
 				/>
 			</Skeleton>
 		</>
