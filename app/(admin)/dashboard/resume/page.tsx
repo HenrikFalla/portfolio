@@ -1,6 +1,6 @@
 import ResumeFormPage from '@/app/(components)/forms/ResumeForm';
 import { getCourseItems } from '@/app/api/(neon)/actions/actions';
-import AdminLayout from '@/app/UI/AdminLayout';
+import AdminLayout from '@/app/(components)/ui/adminLayout';
 
 export default async function ResumeBuilder() {
 	const response = await getCourseItems();

@@ -1,9 +1,9 @@
 import CourseForm from '@/app/(components)/forms/courseForm';
-import AdminLayout from '@/app/UI/AdminLayout';
+import AdminLayout from '@/app/(components)/ui/adminLayout';
 
 export default function course() {
 	return (
-		<AdminLayout title='Create corse'>
+		<AdminLayout title='Create course'>
 			<CourseForm />
 		</AdminLayout>
 	);

@@ -1,6 +1,6 @@
 import UpdateCourseForm from '@/app/(components)/forms/updateCourseForm';
 import { getCourseItems } from '@/app/api/(neon)/actions/actions';
-import AdminLayout from '@/app/UI/AdminLayout';
+import AdminLayout from '@/app/(components)/ui/adminLayout';
 interface FormList {
 	id: number;
 	title: string;
