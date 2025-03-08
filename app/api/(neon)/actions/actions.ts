@@ -131,3 +131,8 @@ export async function getProject(slug: string) {
 	const data = await sql`SELECT * FROM public.projects WHERE slug = ${slug}`;
 	return data;
 }
+export async function getProjects() {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data = await sql`SELECT * FROM public.projects`;
+	return data;
+}

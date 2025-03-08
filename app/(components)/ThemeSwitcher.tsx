@@ -1,7 +1,7 @@
 'use client';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { BabyBear, AdultBear } from '@/app//UI/SVGs/icons';
+import { BabyBear, AdultBear } from '@/app/(components)/ui/SVGs/icons';
 const ThemeSwitcher = () => {
 	const [mount, setMount] = useState(false);
 	const { systemTheme, theme, setTheme } = useTheme();
