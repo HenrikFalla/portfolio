@@ -31,6 +31,15 @@ interface UpdateCourseData {
 	slug: string;
 	url: string;
 }
+interface ProjectData {
+	title: string;
+	description: string;
+	slug: string;
+	url: string;
+	githubUrl: string;
+	mainImage: string;
+	galleryImages: string[];
+}
 export async function getUsers() {
 	const sql = neon(process.env.DATABASE_URL as string);
 	const data = await sql`SELECT email FROM authorised_users`;
@@ -41,12 +50,6 @@ export async function createResumeItem(resumeData: ResumeData) {
 	await sql`INSERT INTO public.resume (title, description, category, company, institution, issuer, certificateurl, location, "startDate", "endDate", tags) VALUES (${resumeData.title}, ${resumeData.description}, ${resumeData.category}, ${resumeData.company}, ${resumeData.institution}, ${resumeData.issuer}, ${resumeData.certificateUrl}, ${resumeData.location}, ${resumeData.startDate}, ${resumeData.endDate}, ${resumeData.tags})`;
 	const response =
 		await sql`SELECT * FROM public.resume WHERE title = ${resumeData.title}`;
-	// console.log(response);
-	// for (const id of courseData) {
-	// 	await sql`INSERT INTO public.resume_courses (resume_id, course_id) VALUES (${id}, ${
-	// 		response.id as number
-	// 	})`;
-	// }
 	if (response) {
 		return response;
 	} else {
@@ -110,17 +113,21 @@ export async function getResumeCourseItems(resumeId: number) {
 	const sql = neon(process.env.DATABASE_URL as string);
 	console.log('Getting resume id', resumeId);
 	try {
-		// const testdata =
-		// 	await sql`SELECT EXISTS (SELECT 1 FROM resume_courses WHERE resume_id = '${resumeId}')`;
-		// if (!testdata) {
-		// 	throw new Error('No data found');
-		// }
-		// const data =
-		// 	await sql`SELECT * FROM resume_courses WHERE resume_id = '${resumeId}'`;
 		const data =
 			await sql`SELECT course_id FROM resume_courses WHERE EXISTS (SELECT * FROM resume_courses WHERE resume_id = ${resumeId}) AND resume_id = ${resumeId}`;
 		return data;
 	} catch (e) {
 		return e;
 	}
+}
+export async function createProject(projectData: ProjectData) {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data =
+		await sql`INSERT INTO public.projects (title, description, slug, url, githuburl, mainimage, galleryimages) VALUES (${projectData.title}, ${projectData.description}, ${projectData.slug}, ${projectData.url}, ${projectData.githubUrl}, ${projectData.mainImage}, ${projectData.galleryImages})`;
+	return data;
+}
+export async function getProject(slug: string) {
+	const sql = neon(process.env.DATABASE_URL as string);
+	const data = await sql`SELECT * FROM public.projects WHERE slug = ${slug}`;
+	return data;
 }
