@@ -5,6 +5,7 @@ import FileInput from './fields/FileInput';
 import Image from 'next/image';
 import Input from './fields/Input';
 import TextAreaInput from './fields/TextAreaInput';
+import { createProject } from '@/app/api/(neon)/actions/actions';
 
 interface HTMLInputEvent extends ChangeEvent<HTMLInputElement> {
 	target: HTMLInputElement & EventTarget;
@@ -17,6 +18,7 @@ export default function CreateProjectForm() {
 		description: '',
 		slug: '',
 		url: '',
+		githubUrl: '',
 		mainImage: '/placeholder.svg',
 		galleryImages: [] as string[],
 	});
@@ -116,6 +118,18 @@ export default function CreateProjectForm() {
 			});
 		}
 		console.log(uploadForm);
+		const slug = formData.title
+			.toLowerCase()
+			.replace(/ /g, '-')
+			.replace(/[^\w-]+/g, '');
+		uploadForm.slug = slug;
+		try {
+			const response = await createProject(uploadForm);
+			console.log(response);
+		} catch (e) {
+			console.log(e);
+			alert('Failed to create project');
+		}
 	}
 	return (
 		<form
@@ -136,6 +150,14 @@ export default function CreateProjectForm() {
 					value={formData.url}
 					name='url'
 					label='Url'
+					type='url'
+				/>
+				<Input
+					onChange={handleChangeInputField}
+					placeholder='github url'
+					value={formData.githubUrl}
+					name='githubUrl'
+					label='Github Url'
 					type='url'
 				/>
 				<TextAreaInput
