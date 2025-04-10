@@ -5,14 +5,9 @@ export default function Header() {
 		<header className='ml-auto mr-auto p-5 flex flex-col items-center justify-center w-full max-w-lg gap-4'>
 			<Link
 				href='/'
-				className='w-full'
+				className='w-full flex flex-col items-center justify-center gap-2'
 			>
 				<LogoSvg />
-			</Link>
-			<Link
-				href='/'
-				className='w-full'
-			>
 				<LogoSubtitleSvg />
 			</Link>
 		</header>
